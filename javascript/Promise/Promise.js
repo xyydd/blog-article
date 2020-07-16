@@ -56,7 +56,71 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
       })
 
     } else if (this.status === PENDING) {
-      s
+      self.onFulfilled.push(() => {
+        setTimeout(() => {
+          try {
+            let x = onFulfilled(self.value)
+            resolvePromise(promise2, x, resolve, reject)
+          } catch (e) {
+            reject(e);
+          }
+        })
+      })
+      self.onRejected.push(() => {
+        setTimeout(() => {
+          try {
+            let x = onRejected(self.reason)
+            resolvePromise(promise2, x, resolve, reject)
+          } catch (e) {
+            reject(e)
+          }
+        })
+      })
     }
   })
+  return promise2
 }
+
+function resolvePromise (peomise2, x, resolve, reject) {
+  let self = this
+  if (promise2 === x) {
+    reject(new TypeError('Chaning cycle'))
+  }
+  if (x && typeof x === 'object' || typeof x === 'function') {
+    let used
+    try {
+      let then = x.then
+      if (typeof then === 'function') {
+        then.call(x, y => {
+          if (used) {
+            return
+          }
+          used = true
+          resolvePromise(peomise2, y, resolve, reject)
+        }, r => {
+          if (used) {
+            return
+          }
+          used = true
+          reject(r)
+        })
+      } else {
+        if (used) {
+          return
+        }
+        used = true
+        reject(x)
+      }
+    } catch (e) {
+      if (used) {
+        return
+      }
+      used = true
+      reject(e)
+    }
+  } else {
+    resolve(x)
+  }
+}
+
+module.exports = Promise
