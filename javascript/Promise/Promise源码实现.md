@@ -2,7 +2,7 @@
 
 照着[刘小夕](https://github.com/YvetteLau)姐姐的[Promise的源码实现（完美符合Promise/A+规范）](https://github.com/YvetteLau/Blog/issues/2)写的，其实就是照搬，记下自己每次实现的心路历程
 
-MDN
+#### MDN
 
 > **Promise** 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值
 
@@ -13,4 +13,7 @@ Promise有三种状态：
 - *pending*: 初始状态，既不是成功，也不是失败状态。
 - *fulfilled*: 意味着操作成功完成。
 - *rejected*: 意味着操作失败。
+
+
+## 先照抄一遍
 

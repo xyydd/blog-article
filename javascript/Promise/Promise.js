@@ -31,6 +31,7 @@ function Promise (executor) {
 }
 
 Promise.prototype.then = function (onFulfilled, onRejected) {
+  console.log(1, onFulfilled, onRejected, this.value)
   onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
   onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
   let promise2 = new Promise((resolve, reject) => {
@@ -52,6 +53,8 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
         try {
           let x = onRejected(this.reason)
           resolvePromise(promise2, x, resolve, reject)
+        } catch (e) {
+          reject(e)
         }
       })
 
@@ -121,6 +124,15 @@ function resolvePromise (peomise2, x, resolve, reject) {
   } else {
     resolve(x)
   }
+}
+
+Promise.defer = Promise.deferred = function () {
+  let dfd = {}
+  dfd.promise = new Promise((resolve, reject) => {
+    dfd.resolve = resolve
+    dfd.reject = reject
+  })
+  return dfd
 }
 
 module.exports = Promise
