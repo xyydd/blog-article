@@ -164,4 +164,5 @@ if (template) {
 
 ## 总结
 
-所以其实$mount主要是把render函数给放到option上去，没有就创建。接下来会讲生成render函数的方法[`compileToFunctions`]('./源码5--compileToFunctions生成render函数.md')
+所以其实$mount主要是把render函数给放到option上去，没有就创建。接下来会讲原型上的[$mount](./源码5---$mount)
+
