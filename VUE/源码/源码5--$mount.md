@@ -17,7 +17,7 @@ Vue.prototype.$mount = function (
 
 ### mountComponent
 
-这个方法是`$mount`返回的，它在`src/core/instance/lifecycle.js`下 114行
+这个方法是`$mount`返回的，它在`src/core/instance/lifecycle.js`下 141行
 
 ```javascript
 export function mountComponent (
