@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="05b116d4-4d92-414a-b4b6-bc604b682d1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/concat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/copyWithin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/entries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/every.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/fill.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/filter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/find.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUE/数据视图双向绑定.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUE/源码/源码0--介绍.md" beforeDir="false" afterPath="$PROJECT_DIR$/../VUE/源码/源码0--介绍.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/css属性哪些可以被继承.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/css边框.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/css选择器优先级.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/margin负值的应用.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/伪随机数/random.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jRKE8mMC7V9wAlwr2nUw7RirIl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="05b116d4-4d92-414a-b4b6-bc604b682d1b" name="Default Changelist" comment="" />
+      <created>1603761351351</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603761351351</updated>
+      <workItem from="1603761352935" duration="2289000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/数组内置方法代码/filter.js</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
