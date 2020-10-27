@@ -20,20 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05b116d4-4d92-414a-b4b6-bc604b682d1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/concat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/copyWithin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/entries.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/every.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/fill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数组内置方法代码/find.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VUE/数据视图双向绑定.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VUE/源码/源码0--介绍.md" beforeDir="false" afterPath="$PROJECT_DIR$/../VUE/源码/源码0--介绍.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/css属性哪些可以被继承.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/css边框.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/css选择器优先级.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/margin负值的应用.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/伪随机数/random.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/findIndex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/forEach.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数组内置方法代码/from.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js 数组所有内置方法.md" beforeDir="false" afterPath="$PROJECT_DIR$/js 数组所有内置方法.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +51,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -67,6 +61,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -77,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603761351351</updated>
-      <workItem from="1603761352935" duration="2289000" />
+      <workItem from="1603761352935" duration="3664000" />
     </task>
     <servers />
   </component>
@@ -94,6 +89,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="397" y="199" key="SettingsEditor" timestamp="1603768056794">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1603768056794" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
