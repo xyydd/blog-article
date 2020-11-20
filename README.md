@@ -2,8 +2,6 @@
 
 ## javascript
 
-[关于js优化||About Javascript Optimization](https://github.com/xyydd/blog-article/blob/master/javascript/About%20Javascript%20Optimization.md)
-
 [Realms](./javascript/Realms.md)
 
 [js数组所有内置方法简述以及手动实现](./javascript/js 数组所有内置方法.md)
