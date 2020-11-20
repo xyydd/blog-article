@@ -24,26 +24,26 @@
 
 ### vue 源码
 
-[介绍](Vue/源码/源码0--介绍)
+[介绍](VUE/源码/源码0--介绍)
 
-[目录](Vue/源码/源码1--目录)
+[目录](VUE/源码/源码1--目录)
 
-[入口](Vue/源码/源码2--入口)
+[入口](VUE/源码/源码2--入口)
 
-[new Vue时发生了什么](Vue/源码/源码3--new%20Vue时发生了什么)
+[new Vue时发生了什么](VUE/源码/源码3--new%20Vue时发生了什么)
 
-[$mount 实例挂载](Vue/源码/源码4--$mount%20实例挂载)
+[$mount 实例挂载](VUE/源码/源码4--$mount%20实例挂载)
 
-[$mount](Vue/源码/源码5--$mount)
+[$mount](VUE/源码/源码5--$mount)
 
-[_render](Vue/源码/源码6--_render)
+[_render](VUE/源码/源码6--_render)
 
-[createElement](Vue/源码/源码7--createElement)
+[createElement](VUE/源码/源码7--createElement)
 
-[_update](Vue/源码/源码8--_update)
+[_update](VUE/源码/源码8--_update)
 
-[响应式原理](Vue/源码/源码9--响应式原理)
+[响应式原理](VUE/源码/源码9--响应式原理)
 
-[Object.defineProperty](Vue/源码/源码10--Object.defineProperty)
+[Object.defineProperty](VUE/源码/源码10--Object.defineProperty)
 
 
