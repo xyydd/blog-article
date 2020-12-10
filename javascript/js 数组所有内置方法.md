@@ -277,7 +277,7 @@ Array.prototype.findIndex = function (fn, ctx) {
 
 数组每个元素都执行一次回调函数。不会修改原数组。但是当元素为引用类型时，会修改。
 
-#### 例子
+#### 例子🌰
 
 ```javascript
 const b = [{v: 65}]
@@ -297,84 +297,489 @@ Array.prototype.forEach2 = function (fn, ctx = window) {
 
 ### from()
 
-通过给定的对象中创建一个数组。
+通过拥有 length 属性的对象或可迭代的对象来返回一个数组。(他有第二个参数，是个function，和map是一样的)
+
+#### 例子🌰
+
+```javascript
+let a = {0: 'demo', 1: 'demo2', length: 2}
+let b = Array.from(a)
+console.log(b) //=>['demo', 'demo2']
+```
+
+#### 实现
+
+```javascript
+Array.from2 = function (data, mapFun = function (item) {return item}) {
+  let res = []
+  if (data.length) {
+    for (let i = 0; i < data.length; i++) {
+      res[i] = mapFun(data[i]) || null
+    }
+  } else if (typeof data[Symbol.iterator] === 'function') {
+    data.forEach((item) => {
+      res.push(mapFun(item))
+    })
+  }
+  return res
+}
+```
 
 ### includes()
 
-判断一个数组是否包含一个指定的值。
+判断一个数组是否包含一个指定的值，包括NaN也能判断出来为true。
+
+#### 例子🌰
+
+```javascript
+const a = [1,2,3,NaN]
+a.includes(NaN) // true
+```
+
+#### 实现
+
+```javascript
+Array.prototype.includes2 = function (el, fromIndex = 0) {
+  if (typeof el === 'object') {
+    return false
+  }
+  if (fromIndex < 0) {
+    fromIndex = this.length + fromIndex
+  }
+  for (let i = fromIndex; i < this.length; i++) {
+    if (el.toString() === 'NaN') {
+      if (this[i].toString() === el.toString()) {
+        return true
+      }
+    } else {
+      if (this[i] === el) {
+        return true
+      }
+    }
+  }
+  return false
+}
+```
 
 ### indexOf()
 
 搜索数组中的元素，并返回它所在的位置。
 
+#### 例子🌰
+
+```javascript
+let a = [1,2,3,NaN]
+a.indexOf(2) // 1
+```
+
+#### 实现
+
+```javascript
+Array.prototype.indexOf2 = function (el, start = 0) {
+  if (start >= this.length || start < 0) return -1
+  for (let i = start; i < this.length; i++) {
+    if (el === this[i]) {
+      return i
+    }
+  }
+  return -1
+}
+```
+
 ### isArray()
 
 判断对象是否为数组。
+
+#### 例子🌰
+
+```javascript
+let a = [1,2,3,NaN]
+Array.isArray(a) // true
+```
+
+#### 实现
+
+```javascript
+Array.isArray2 = function (array) {
+  return Object.prototype.toString.call(arg) === '[object Array]'
+}
+```
 
 ### join()
 
 把数组的所有元素放入一个字符串。
 
+#### 例子🌰
+
+```javascript
+let a = [1,2,3,NaN]
+a.join(',') // '1,2,3,NaN'
+```
+
+#### 实现
+
+```javascript
+Array.prototype.join2 = function (separator = '') {
+  let res
+  for (let i = 0; i < this.length; i++) {
+    if (!res) {
+      res = this[i]
+    } else {
+      res += separator + this[i]
+    }
+  }
+  return res
+}
+```
+
 ### keys()
 
 返回数组的可迭代对象，包含原始数组的键(key)。
+
+#### 例子🌰
+
+```javascript
+let a = [1,2,3,NaN]
+let b = a.keys()
+b.next() //{value: 0, done: false}
+b.next() //{value: 1, done: false}
+b.next() //{value: 2, done: false}
+b.next() //{value: 3, done: false}
+b.next() //{value: undefiend, done: true}
+```
+
+#### 实现
+
+```javascript
+function makeIterator(array) {
+  let nextIndex = 0;
+  return {
+    [Symbol.iterator]: function() {
+      return nextIndex < array.length ?
+        {value: array[nextIndex++], done: false} :
+        {value: undefined, done: true};
+    }
+  };
+}
+
+Array.prototype.keys2 = function () {
+  let res = []
+  for (let i = 0; i < this.length; i++) {
+    res.push(i)
+  }
+  return makeIterator(res).Symbol.iterator
+}
+```
+
+迭代器详情请看阮一峰老师的[ECMAScript 6 入门](https://es6.ruanyifeng.com/)-[Iterator 和 for...of 循环](https://es6.ruanyifeng.com/#docs/iterator)
 
 ### lastIndexOf()
 
 搜索数组中的元素，并返回它最后出现的位置。
 
+#### 例子🌰
+
+```javascript
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.lastIndexOf("Apple"); // 2
+```
+
+#### 实现
+
+```javascript
+Array.prototype.lastIndexOf2 = function (el, start = 0) {
+  start = Math.abs(start)
+  let res = -1
+  for (let i = start; i < this.length; i++) {
+    if (el === this[i] && res < i) {
+      res = i
+    }
+  }
+  if (start > 0) {
+    for (let i = 0; i < this.length - start; i++) {
+      if (el === this[i] && res < i) {
+        res = i
+      }
+    }
+  }
+  return res
+}
+```
+
 ### map()
 
 通过指定函数处理数组的每个元素，并返回处理后的数组。
+
+#### 例子🌰
+
+```javascript
+var numbers = [4, 9, 16, 25];
+
+numbers.map(Math.sqrt); // [2,3,4,5]
+```
+
+#### 实现
+
+```javascript
+Array.prototype.map2 = function (fn, context = null) {
+  const res = []
+  if (!context) {
+    context = this
+  }
+  for (let i = 0; i < context.length; i++) {
+    res.push(fn(context[i], i, context))
+  }
+  return res
+}
+```
 
 ### pop()
 
 删除数组的最后一个元素并返回删除的元素。
 
+#### 例子🌰
+
+```javascript
+let a = [1,2,3]
+a.pop() // 3,a:[1,2]
+```
+
+#### 实现
+
+```javascript
+Array.prototype.pop2 = function () {
+  const res = this[this.length - 1]
+  this.length -= 1
+  return res
+}
+```
+
 ### push()
 
 向数组的末尾添加一个或更多元素，并返回新的长度。
+
+#### 例子🌰
+
+```javascript
+let a = []
+a.push(1,2,3,4) // 4,a:[1,2,3,4]
+```
+
+#### 实现
+
+```javascript
+Array.prototype.push2 = function (...el) {
+  for (let i = 0; i < el.length; i++) {
+    this[this.length + i] = el[i]
+  }
+  return this.length
+}
+```
 
 ### reduce()
 
 将数组元素计算为一个值（从左到右）。
 
+#### 例子🌰
+
+```javascript
+let a = [1,2,3,4]
+function getSum(total, num) {
+    return total + num;
+}
+a.reduce(getSum) // 10
+```
+
+#### 实现
+
+```javascript
+Array.prototype.reduce2 = function (fn) {
+  let res = this[0]
+  for (let i = 1; i < this.length; i++) {
+    res = fn(res, this[i], i, this)
+  }
+  return res
+}
+```
+
 ### reduceRight()
 
 将数组元素计算为一个值（从右到左）。
+
+#### 例子🌰
+
+```javascript
+let a = [1,2,3,4]
+function getSum(total, num) {
+    return total + num;
+}
+a.reduceRight(getSum) // 10
+```
+
+#### 实现
+
+```javascript
+Array.prototype.reduceRight2 = function (fn) {
+  let res = this[this.length - 1]
+  for (let i = this.length - 2; i >= 0; i--) {
+    res = fn(res, this[i], i, this)
+  }
+  return res
+}
+```
 
 ### reverse()
 
 反转数组的元素顺序。
 
+#### 例子🌰
+
+```javascript
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.reverse();//["Mango", "Apple", "Orange", "Banana"]
+```
+
+#### 实现
+
+```javascript
+Array.prototype.reverse2 = function () {
+  let start = 0
+  let end = this.length - 1
+  while (start <= Math.floor(this.length / 2)) {
+    const temp = this[start]
+    this[start] = this[end]
+    this[end] = temp
+    start++
+    end--
+  }
+  return this
+}
+```
+
 ### shift()
 
 删除并返回数组的第一个元素。
+
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
 
 ### slice()
 
 选取数组的一部分，并返回一个新数组。
 
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
+
 ### some()
 
 检测数组元素中是否有元素符合指定条件。
+
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
 
 ### sort()
 
 对数组的元素进行排序。
 
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
+
 ### splice()
 
 从数组中添加或删除元素。
+
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
 
 ### toString()
 
 把数组转换为字符串，并返回结果。
 
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
+
 ### unshift()
 
 向数组的开头添加一个或更多元素，并返回新的长度。
 
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
+
 ### valueOf()
 
 返回数组对象的原始值。
+
+#### 例子🌰
+
+```javascript
+
+```
+
+#### 实现
+
+```javascript
+
+```
