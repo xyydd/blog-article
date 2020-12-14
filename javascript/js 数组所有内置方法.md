@@ -663,12 +663,23 @@ Array.prototype.reverse2 = function () {
 #### 例子🌰
 
 ```javascript
-
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift() // "Banana"
 ```
 
 #### 实现
 
 ```javascript
+Array.prototype.shift2 = function () {
+  const res = this[0]
+  for (let i = 0; i < this.length; i++) {
+    if (this[i + 1]) {
+      this[i] = this[i + 1]
+    }
+  }
+  this.length -= 1
+  return res
+}
 
 ```
 
@@ -679,13 +690,26 @@ Array.prototype.reverse2 = function () {
 #### 例子🌰
 
 ```javascript
-
+let a = [1,2,3,4,5]
+a.slice(1,2) // [2]
 ```
 
 #### 实现
 
 ```javascript
-
+Array.prototype.slice2 = function (start, end) {
+  if (!end || end > this.length) {
+    end = this.length
+  }
+  if (!start) {
+    start = 0
+  }
+  let res = []
+  for (let i = start; i < end; i++) {
+    res.push(this[i])
+  }
+  return res
+}
 ```
 
 ### some()
@@ -695,12 +719,27 @@ Array.prototype.reverse2 = function () {
 #### 例子🌰
 
 ```javascript
-
+let a = [1,2,3,8]
+a.some(function (item) {
+    return item >= 8
+}) // true
 ```
 
 #### 实现
 
 ```javascript
+Array.prototype.some2 = function (fn, context) {
+  if (!context) {
+    context = this
+  }
+  for (let i = 0; i < context.length; i++) {
+    const res = fn(context[i], i, context)
+    if (res === true) {
+      return res
+    }
+  }
+  return false
+}
 
 ```
 
@@ -711,45 +750,128 @@ Array.prototype.reverse2 = function () {
 #### 例子🌰
 
 ```javascript
-
+var points = [40,100,1,5,25,10];
+points.sort(function(a,b){return b-a}); // [100,40,25,10,5,1]
 ```
 
 #### 实现
 
 ```javascript
+Array.prototype.sort2 = function (fn) {
+  const res = quickSort([...this], fn)
+  for (let i = 0; i < res.length; i++) {
+    this[i] = res[i]
+  }
+  return res
+}
 
+const quickSort = function(arr, fn) {
+  if (arr.length <= 1) { return arr; }
+  const pivotIndex = Math.floor(arr.length / 2);
+  const pivot = arr.splice(pivotIndex, 1)[0];
+  const left = [];
+  const right = [];
+  for (let i = 0; i < arr.length; i++){
+    if (fn(arr[i], pivot) < 0) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return quickSort(left, fn).concat([pivot], quickSort(right, fn));
+};
 ```
 
 ### splice()
 
-从数组中添加或删除元素。
+从数组中添加或删除元素,返回删除的元素，会改变原数组。
 
 #### 例子🌰
 
 ```javascript
-
+let a = [1,2,6,4,5]
+a.splice(2, 1, 3) // [6] a:[1,2,3,4,5,6]
 ```
 
 #### 实现
 
 ```javascript
-
+Array.prototype.splice2 = function (targetIndex, num, ...el) {
+  let k = num
+  const res = []
+  if (el.length <= 0) {
+    for (let i = targetIndex; i < this.length; i++) {
+      if (this[i + num]) {
+        res.push(this[i])
+        this[i] = this[i + num]
+      }
+    }
+    this.length -= num
+  } else {
+    let temp = []
+    for (let i = targetIndex; i < this.length; i++) {
+      if (res.length < num) {
+        res.push(this[i])
+      } else {
+        temp.push(this[i])
+      }
+    }
+    this.length = this.length - (temp.length + num)
+    let len = this.length + el.length
+    let j = 0
+    for (let i = targetIndex; i < len; i++) {
+      this[i] = el[j]
+      j++
+    }
+    j = 0
+    len = this.length + temp.length
+    for (let i = this.length; i < len; i++) {
+      this[i] = temp[j]
+      j++
+    }
+  }
+  return res
+}
 ```
 
 ### toString()
 
-把数组转换为字符串，并返回结果。
+把数组转换为字符串，并返回结果(会递归转换)。
 
 #### 例子🌰
 
 ```javascript
-
+let a = [
+    [1, {a:1}],
+    [2,3]
+]
+a.toString() // "1,[object Object],2,3"
 ```
 
 #### 实现
 
 ```javascript
+Array.prototype.toString2 = function () {
+  return toStrng(this)
+}
 
+function toStrng (arr) {
+  if (Array.isArray(arr)) {
+    let res
+    for (let i = 0; i < arr.length; i++) {
+      if (!res) {
+        res = toStrng(arr[i])
+      } else {
+        res += ',' + toStrng(arr[i])
+      }
+    }
+    return res
+  } else if (typeof arr === 'number' || typeof arr === 'string') {
+    return arr
+  } else {
+    return Object.prototype.toString.call(arr)
+  }
+}
 ```
 
 ### unshift()
@@ -759,27 +881,29 @@ Array.prototype.reverse2 = function () {
 #### 例子🌰
 
 ```javascript
-
+let a = [3,4,5]
+a.unshift(1,2) //5 a:[1,2,3,4,5]
 ```
 
 #### 实现
 
 ```javascript
-
+Array.prototype.unshift2 = function (...arr) {
+  const temp = []
+  for (let i = 0; i < this.length; i++) {
+    temp.push(this[i])
+  }
+  this.length = arr.length
+  for (let i = 0; i < this.length; i++) {
+    this[i] = arr[i]
+  }
+  const len = this.length + temp.length
+  let j = 0
+  for (let i = arr.length; i < len; i++) {
+    this[i] = temp[j]
+    j++
+  }
+  return len
+}
 ```
 
-### valueOf()
-
-返回数组对象的原始值。
-
-#### 例子🌰
-
-```javascript
-
-```
-
-#### 实现
-
-```javascript
-
-```
