@@ -1,8 +1,8 @@
 ## javascript
 
-[Realms](javascript/Realms)
+[Realms](javascript/Realms.md)
 
-[js数组所有内置方法简述以及手动实现](javascript/js数组所有内置方法)
+[js数组所有内置方法简述以及手动实现](javascript/js数组所有内置方法.md)
 
 ## CSS
 
