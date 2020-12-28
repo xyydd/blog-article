@@ -4,6 +4,8 @@
 
 [js数组所有内置方法简述以及手动实现](javascript/js数组所有内置方法.md)
 
+[vue3中的proxy怎么单独使用在简单的项目中](javascript/vue3中的proxy怎么单独使用在简单的项目中.md)
+
 ## CSS
 
 [margin负值的应用](css&&html/margin负值的应用.md)
